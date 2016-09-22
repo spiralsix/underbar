@@ -8,8 +8,8 @@ var _ = { };
   // seem very useful, but remember it--if a function needs to provide an
   // iterator when the user does not pass one in, this will be handy.
   _.identity = function(val) {
-    return val;
-  };
+ 
+   };
 
   /**
    * COLLECTIONS
@@ -29,13 +29,7 @@ var _ = { };
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
   _.last = function(array, n) {
-    if (n === undefined) {
-      return array[array.length - 1];
-    } else if (n === 0) {
-      return [];
-    } else {
-      return array.slice(-n);
-    }
+   
   };
 
   // Call iterator(value, key, collection) for each element of collection.
@@ -44,15 +38,7 @@ var _ = { };
   // Note: _.each does not have a return value, but rather simply runs the
   // iterator function over each item in the input collection.
   _.each = function(collection, iterator) {
-    if (Array.isArray(collection)) {
-      for (var i = 0; i < collection.length; i++) {
-        iterator(collection[i], i, collection);
-      };
-    } else {
-      for (var key in collection) {
-        iterator(collection[key], key, collection);
-      };
-    }
+
   };
 
   // Returns the index at which value can be found in the array, or -1 if value
@@ -64,9 +50,7 @@ var _ = { };
     var result = -1;
 
     _.each(array, function(item, index) {
-      if (item === target && result === -1) {
-        result = index;
-      }
+    // CODE goes here
     });
 
     return result;
@@ -74,37 +58,19 @@ var _ = { };
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
-    var truths = [];
-    
-    _.each(collection, function (value) {
-      if (test(value)) {
-        truths.push(value);
-      }
-    });
 
-    return truths;
 
   };
 
   // Return all elements of an array that don't pass a truth test.
   _.reject = function(collection, test) {
-    // TIP: see if you can re-use _.filter() here, without simply
-    // copying code in and modifying it
-    var reverse = function(x) {
-      return !test(x);
-    };
-    return _.filter(collection, reverse);
+    // CODE goes here
   };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
-    var unique = {};
-
-    _.each(array, function(item){
-      unique[item] = true;
-    });
-
-    return Object.keys(unique);
+    // CODE goes here
+ 
   };
 
 
@@ -115,9 +81,7 @@ var _ = { };
     // the members, it also maintains an array of results.
     var results = [];
 
-    _.each(array, function(value) {
-      results.push(iterator(value));
-    });
+    // CODE goes here
 
     return results;
   };
@@ -132,26 +96,14 @@ var _ = { };
   // a certain property in it. E.g. take an array of people and return
   // an array of just their ages
   _.pluck = function(array, propertyName) {
-    // TIP: map is really handy when you want to transform an array of
-    // values into a new array of values. _.pluck() is solved for you
-    // as an example of this.
-    return _.map(array, function(value){
-      return value[propertyName];
-    });
+    // CODE goes here
   };
 
   // Calls the method named by methodName on each value in the list.
   // Note: you will nead to learn a bit about .apply to complete this.
   _.invoke = function(collection, functionOrKey, args) {
-    if(typeof(functionOrKey) == 'function'){
-      return _.map(collection, function(value) {
-        return functionOrKey.apply(value, args);
-      });
-    } else {
-      return _.map(collection, function(value) {
-        return value[functionOrKey].apply(value, args);
-      });
-    };
+    // CODE goes here
+
   };
 
   // Reduces an array or object to a single value by repetitively calling
@@ -168,15 +120,8 @@ var _ = { };
   //     return total + number;
   //   }, 0); // should be 6
   _.reduce = function(collection, iterator, accumulator) {
-    var result = function() {
-      return accumulator == null ? collection[0] : accumulator;
-    }();
-
-    _.each(collection, function(value) {
-      result = iterator(result, value);
-    });
-
-    return result;  
+    // CODE goes here
+ 
   };
 
   // Determine if the array or object contains a given value (using `===`).
@@ -282,20 +227,12 @@ var _ = { };
     // TIP: These variables are stored in a "closure scope" (worth researching),
     // so that they'll remain available to the newly-generated function every
     // time it's called.
-    var alreadyCalled = false;
-    var result;
 
     // TIP: We'll return a new function that delegates to the old one, but only
     // if it hasn't been called before.
     return function() {
-      if (!alreadyCalled) {
-        // TIP: .apply(this, arguments) is the standard way to pass on all of the
-        // infromation from one function call to another.
-        result = func.apply(this, arguments);
-        alreadyCalled = true;
-      }
-      // The new function always returns the originally computed result.
-      return result;
+     // CODE goes here
+  
     };
   };
 
@@ -306,14 +243,8 @@ var _ = { };
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
-    var history = {};
+    // CODE goes here
 
-    return function() {
-      if (!_.contains(history, arguments)) {
-        history[arguments] = func.apply(this, arguments);
-      }
-      return history[arguments];
-    };
   };
 
   // Delays a function for the given number of milliseconds, and then calls
@@ -323,11 +254,8 @@ var _ = { };
   // parameter. For example _.delay(someFunction, 500, 'a', 'b') will
   // call someFunction('a', 'b') after 500ms
   _.delay = function(func, wait) {
-    var args = Array.prototype.slice.call(arguments, 2);
-    
-    setTimeout(function() {
-      func.apply(this, args);
-    }, wait);
+    // CODE goes here
+
   };
 
 
@@ -342,13 +270,8 @@ var _ = { };
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
-    var obj = {};
+      // CODE goes here
 
-    _.each(array, function(value, key){
-      obj[key] = value;
-    });
-
-    return _.map(obj, _.identity);
   };
 
 
