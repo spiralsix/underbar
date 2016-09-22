@@ -8,7 +8,8 @@ var _ = { };
   // seem very useful, but remember it--if a function needs to provide an
   // iterator when the user does not pass one in, this will be handy.
   _.identity = function(val) {
- 
+     // CODE goes here
+
    };
 
   /**
@@ -23,13 +24,15 @@ var _ = { };
   // Return an array of the first n elements of an array. If n is undefined,
   // return just the first element.
   _.first = function(array, n) {
-    return n === undefined ? array[0] : array.slice(0, n);
+        // CODE goes here
+
   };
 
   // Like first, but for the last elements. If n is undefined, return just the
   // last element.
   _.last = function(array, n) {
-   
+       // CODE goes here
+
   };
 
   // Call iterator(value, key, collection) for each element of collection.
@@ -58,8 +61,7 @@ var _ = { };
 
   // Return all elements of an array that pass a truth test.
   _.filter = function(collection, test) {
-
-
+    // CODE goes here
   };
 
   // Return all elements of an array that don't pass a truth test.
@@ -70,7 +72,6 @@ var _ = { };
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
     // CODE goes here
- 
   };
 
 
@@ -79,11 +80,9 @@ var _ = { };
     // map() is a useful primitive iteration function that works a lot
     // like each(), but in addition to running the operation on all
     // the members, it also maintains an array of results.
-    var results = [];
-
+    
     // CODE goes here
 
-    return results;
   };
 
   /*
@@ -103,7 +102,6 @@ var _ = { };
   // Note: you will nead to learn a bit about .apply to complete this.
   _.invoke = function(collection, functionOrKey, args) {
     // CODE goes here
-
   };
 
   // Reduces an array or object to a single value by repetitively calling
@@ -121,48 +119,27 @@ var _ = { };
   //   }, 0); // should be 6
   _.reduce = function(collection, iterator, accumulator) {
     // CODE goes here
- 
   };
 
   // Determine if the array or object contains a given value (using `===`).
   _.contains = function(collection, target) {
     // TIP: Many iteration problems can be most easily expressed in
     // terms of reduce(). Here's a freebie to demonstrate!
-    return _.reduce(collection, function(wasFound, item) {
-      if (wasFound) {
-        return true;
-      }
-      return item === target;
-    }, false);
+    
+    // CODE goes here
+
   };
 
 
   // Determine whether all of the elements match a truth test.
   _.every = function(collection, iterator) {
-    // TIP: Try re-using reduce() here.
-    var test = function() {
-      return iterator == null ? _.identity : iterator;
-    }();
-
-    return _.reduce(collection, function(starter, value){
-      if(test(value) && starter) {
-        return true;
-      }
-      return false;
-    }, true);
+   // CODE goes here
   };
 
   // Determine whether any of the elements pass a truth test. If no iterator is
   // provided, provide a default one
   _.some = function(collection, iterator) {
-    // TIP: There's a very clever way to re-use every() here.
-    var test = function() {
-      return iterator == null ? _.identity : iterator;
-    }();
-
-    return !_.every(collection, function(value){
-      return !test(value);
-    });
+    // CODE goes here
   };
 
 
@@ -185,31 +162,14 @@ var _ = { };
   //     bla: "even more stuff"
   //   }); // obj1 now contains key1, key2, key3 and bla
   _.extend = function(obj) {
-    var target = arguments[0];
-
-    for (var i = 1; i < arguments.length; i++) {
-      for (var key in arguments[i]){
-        target[key] = arguments[i][key];
-      };
-    };
-
-    return target;
+    // CODE goes here
   };
 
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
-    var target = arguments[0];
+    // CODE goes here
 
-    for (var i = 1; i < arguments.length; i++) {
-      for (var key in arguments[i]){
-        if (target[key] == null) {
-          target[key] = arguments[i][key];
-        };
-      };
-    };
-
-    return target;
   };
 
 
